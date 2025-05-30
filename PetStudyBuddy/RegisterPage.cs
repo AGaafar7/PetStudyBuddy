@@ -20,7 +20,7 @@ namespace PetStudyBuddy
 
         private void registerHandler(object sender, EventArgs e)
         {
-            // TODO: Implement registration logic here 
+            // TODO: Implement registration logic here
         }
     }
 }
