@@ -34,14 +34,12 @@
                 BackColor = Color.LightGray
             };
 
-            // Checkbox
             CheckBox checkBox = new CheckBox
             {
                 Location = new Point(5, 10),
                 AutoSize = true
             };
 
-            // Task Name Label
             Label nameLabel = new Label
             {
                 Text = taskName,
@@ -50,7 +48,6 @@
                 Font = new Font("Segoe UI", 10, FontStyle.Bold)
             };
 
-            // Description Label
             Label descLabel = new Label
             {
                 Text = description,
@@ -59,7 +56,6 @@
                 Font = new Font("Segoe UI", 9)
             };
 
-            // Due Date Label
             Label dueLabel = new Label
             {
                 Text = dueDate.ToShortDateString(),
@@ -69,15 +65,13 @@
                 ForeColor = Color.DarkRed
             };
 
-            // Add everything to the task row
             taskRow.Controls.Add(checkBox);
             taskRow.Controls.Add(nameLabel);
             taskRow.Controls.Add(descLabel);
             taskRow.Controls.Add(dueLabel);
 
-            // Add to the main panel
             tasksList.Controls.Add(taskRow);
-            tasksList.Controls.SetChildIndex(taskRow, 0); // Show latest on top
+            tasksList.Controls.SetChildIndex(taskRow, 0);
         }
 
 
