@@ -14,4 +14,10 @@
     <PackageReference Include="SQLitePCLRaw.core" Version="2.1.11" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="petStudy.db">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>
