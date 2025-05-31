@@ -15,6 +15,12 @@ namespace PetStudyBuddy
         public RegisterPage()
         {
             InitializeComponent();
+            registerBTN.Click += registerHandler;
+        }
+
+        private void registerHandler(object sender, EventArgs e)
+        {
+            // TODO: Implement registration logic here
         }
     }
 }
