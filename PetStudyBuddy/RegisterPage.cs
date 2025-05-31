@@ -22,14 +22,6 @@ namespace PetStudyBuddy
 
         private void registerHandler(object sender, EventArgs e)
         {
-            // TODO: Implement registration logic here
-
-
-        }
-
-
-        private void registerBTN_Click(object sender, EventArgs e)
-        {
             string firstName = firstNameField.Text.Trim();
             string lastName = lastNameField.Text.Trim();
             string userName = userNameField.Text.Trim();
@@ -85,9 +77,11 @@ namespace PetStudyBuddy
                 {
                     MessageBox.Show("Error during login: " + ex.Message);
                 }
-               
+
             }
 
+
         }
+
     }
 }
