@@ -33,12 +33,18 @@
             label1 = new Label();
             progressBar1 = new ProgressBar();
             label2 = new Label();
-            listView1 = new ListView();
             addBTN = new Button();
             profilePic = new Button();
             label3 = new Label();
             pictureBox1 = new PictureBox();
-            timer1 = new System.Windows.Forms.Timer(components);
+            countDownLabel = new Label();
+            startTimerBTN = new Button();
+            countDownTimer = new System.Windows.Forms.Timer(components);
+            stopTimerBTN = new Button();
+            shopBTN = new Button();
+            label4 = new Label();
+            pointLabel = new Label();
+            tasksList = new FlowLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -68,14 +74,6 @@
             label2.Size = new Size(31, 20);
             label2.TabIndex = 2;
             label2.Text = "0/0";
-            // 
-            // listView1
-            // 
-            listView1.Location = new Point(41, 263);
-            listView1.Name = "listView1";
-            listView1.Size = new Size(270, 236);
-            listView1.TabIndex = 3;
-            listView1.UseCompatibleStateImageBehavior = false;
             // 
             // addBTN
             // 
@@ -109,7 +107,6 @@
             label3.Size = new Size(17, 20);
             label3.TabIndex = 6;
             label3.Text = "0";
-            
             // 
             // pictureBox1
             // 
@@ -122,16 +119,87 @@
             pictureBox1.TabIndex = 7;
             pictureBox1.TabStop = false;
             // 
+            // countDownLabel
+            // 
+            countDownLabel.AutoSize = true;
+            countDownLabel.Location = new Point(474, 303);
+            countDownLabel.Name = "countDownLabel";
+            countDownLabel.Size = new Size(44, 20);
+            countDownLabel.TabIndex = 8;
+            countDownLabel.Text = "25:00";
+            // 
+            // startTimerBTN
+            // 
+            startTimerBTN.Location = new Point(406, 361);
+            startTimerBTN.Name = "startTimerBTN";
+            startTimerBTN.Size = new Size(94, 29);
+            startTimerBTN.TabIndex = 9;
+            startTimerBTN.Text = "Start";
+            startTimerBTN.UseVisualStyleBackColor = true;
+            // 
+            // countDownTimer
+            // 
+            countDownTimer.Interval = 25;
+            // 
+            // stopTimerBTN
+            // 
+            stopTimerBTN.Location = new Point(515, 361);
+            stopTimerBTN.Name = "stopTimerBTN";
+            stopTimerBTN.Size = new Size(94, 29);
+            stopTimerBTN.TabIndex = 10;
+            stopTimerBTN.Text = "Stop";
+            stopTimerBTN.UseVisualStyleBackColor = true;
+            // 
+            // shopBTN
+            // 
+            shopBTN.Location = new Point(660, 21);
+            shopBTN.Name = "shopBTN";
+            shopBTN.Size = new Size(94, 29);
+            shopBTN.TabIndex = 11;
+            shopBTN.Text = "Shop";
+            shopBTN.UseVisualStyleBackColor = true;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(588, 25);
+            label4.Name = "label4";
+            label4.Size = new Size(37, 20);
+            label4.TabIndex = 12;
+            label4.Text = "XP : ";
+            // 
+            // pointLabel
+            // 
+            pointLabel.AutoSize = true;
+            pointLabel.Location = new Point(616, 26);
+            pointLabel.Name = "pointLabel";
+            pointLabel.Size = new Size(17, 20);
+            pointLabel.TabIndex = 13;
+            pointLabel.Text = "0";
+            // 
+            // tasksList
+            // 
+            tasksList.Location = new Point(29, 275);
+            tasksList.Name = "tasksList";
+            tasksList.Size = new Size(250, 125);
+            tasksList.TabIndex = 14;
+            // 
             // MainPage
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 511);
+            Controls.Add(tasksList);
+            Controls.Add(pointLabel);
+            Controls.Add(label4);
+            Controls.Add(shopBTN);
+            Controls.Add(stopTimerBTN);
+            Controls.Add(startTimerBTN);
+            Controls.Add(countDownLabel);
             Controls.Add(pictureBox1);
             Controls.Add(label3);
             Controls.Add(profilePic);
             Controls.Add(addBTN);
-            Controls.Add(listView1);
             Controls.Add(label2);
             Controls.Add(progressBar1);
             Controls.Add(label1);
@@ -147,11 +215,18 @@
         private Label label1;
         private ProgressBar progressBar1;
         private Label label2;
-        private ListView listView1;
         private Button addBTN;
         private Button profilePic;
         private Label label3;
         private PictureBox pictureBox1;
-        private System.Windows.Forms.Timer timer1;
+        private Label countDownLabel;
+        private Button startTimerBTN;
+        private System.Windows.Forms.Timer countDownTimer;
+        private TimeSpan timeLeft;
+        private Button stopTimerBTN;
+        private Button shopBTN;
+        private Label label4;
+        private Label pointLabel;
+        private FlowLayoutPanel tasksList;
     }
 }
