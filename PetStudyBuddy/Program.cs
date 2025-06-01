@@ -36,7 +36,7 @@ namespace PetStudyBuddy
                 MessageBox.Show("Database connection failed:\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            Application.Run(new MainPage());
+            Application.Run(new Form1());
         }
     }
 }

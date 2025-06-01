@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace PetStudyBuddy
@@ -18,6 +19,55 @@ namespace PetStudyBuddy
         {
             InitializeComponent();
             registerBTN.Click += registerHandler;
+            loginBTN.Click += navLoginHandler;
+           pictureBox1.Click += imageOneClickHandler;
+           pictureBox2.Click += imageTwoClickHandler;
+              pictureBox3.Click += imageThreeClickHandler;
+              pictureBox4.Click += imageFourClickHandler;
+        }
+        private int imageSelected = 0; 
+
+        private void navLoginHandler(object sender, EventArgs e)
+        {
+            Form1 loginPage = new Form1();
+            loginPage.Show();
+            this.Hide();
+        }
+        private void imageOneClickHandler(object sender, EventArgs e)
+        {
+            imageSelected = 0;
+            pictureBox1.BorderStyle = BorderStyle.Fixed3D;
+            pictureBox1.BackColor = Color.LightBlue;
+            pictureBox2.BorderStyle = BorderStyle.None;
+            pictureBox3.BorderStyle = BorderStyle.None;
+            pictureBox4.BorderStyle = BorderStyle.None;
+        }
+        private void imageTwoClickHandler(object sender, EventArgs e)
+        {
+            imageSelected = 1;
+            pictureBox1.BorderStyle = BorderStyle.None;
+            pictureBox2.BorderStyle = BorderStyle.Fixed3D;
+            pictureBox2.BackColor = Color.LightBlue;
+            pictureBox3.BorderStyle = BorderStyle.None;
+            pictureBox4.BorderStyle = BorderStyle.None;
+        }
+        private void imageThreeClickHandler(object sender, EventArgs e)
+        {
+            imageSelected = 2;
+            pictureBox1.BorderStyle = BorderStyle.None;
+            pictureBox2.BorderStyle = BorderStyle.None;
+            pictureBox3.BorderStyle = BorderStyle.Fixed3D;
+            pictureBox3.BackColor = Color.LightBlue;
+            pictureBox4.BorderStyle = BorderStyle.None;
+        }
+        private void imageFourClickHandler(object sender, EventArgs e)
+        {
+            imageSelected = 3;
+            pictureBox1.BorderStyle = BorderStyle.None;
+            pictureBox2.BorderStyle = BorderStyle.None;
+            pictureBox3.BorderStyle = BorderStyle.None;
+            pictureBox4.BorderStyle = BorderStyle.Fixed3D;
+            pictureBox4.BackColor = Color.LightBlue;
         }
 
         private void registerHandler(object sender, EventArgs e)
@@ -27,7 +77,6 @@ namespace PetStudyBuddy
             string userName = userNameField.Text.Trim();
             string password = passwordField.Text.Trim();
 
-            //got inputs in the above variables
             if (string.IsNullOrEmpty(firstName) || string.IsNullOrEmpty(lastName) || string.IsNullOrEmpty(userName) || string.IsNullOrEmpty(password))
             {
                 MessageBox.Show("Please fill in all fields.");
