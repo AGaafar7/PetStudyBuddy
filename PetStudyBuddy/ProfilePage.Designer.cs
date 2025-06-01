@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             backButton = new Button();
-            headerLabel = new TextBox();
             changeIconCombo = new ComboBox();
             usernameLabel = new Label();
             levelProgress = new ProgressBar();
@@ -40,6 +39,7 @@
             shopButton = new Button();
             signOutButton = new Button();
             deleteAccountButton = new Button();
+            headerLabel = new Label();
             SuspendLayout();
             // 
             // backButton
@@ -51,15 +51,6 @@
             backButton.Text = "Back";
             backButton.UseVisualStyleBackColor = true;
             backButton.Click += button1_Click;
-            // 
-            // headerLabel
-            // 
-            headerLabel.Location = new Point(306, 14);
-            headerLabel.Name = "headerLabel";
-            headerLabel.Size = new Size(125, 27);
-            headerLabel.TabIndex = 1;
-            headerLabel.Text = "My Profile";
-            headerLabel.TextChanged += textBox1_TextChanged;
             // 
             // changeIconCombo
             // 
@@ -152,11 +143,23 @@
             deleteAccountButton.Text = "Delete Account";
             deleteAccountButton.UseVisualStyleBackColor = true;
             // 
+            // headerLabel
+            // 
+            headerLabel.AutoSize = true;
+            headerLabel.Font = new Font("Segoe UI", 12F);
+            headerLabel.Location = new Point(318, 13);
+            headerLabel.Name = "headerLabel";
+            headerLabel.Size = new Size(101, 28);
+            headerLabel.TabIndex = 12;
+            headerLabel.Text = "My Profile";
+            headerLabel.TextAlign = ContentAlignment.MiddleLeft;
+            // 
             // ProfilePage
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(746, 553);
+            Controls.Add(headerLabel);
             Controls.Add(deleteAccountButton);
             Controls.Add(signOutButton);
             Controls.Add(shopButton);
@@ -166,7 +169,6 @@
             Controls.Add(levelProgress);
             Controls.Add(usernameLabel);
             Controls.Add(changeIconCombo);
-            Controls.Add(headerLabel);
             Controls.Add(backButton);
             Name = "ProfilePage";
             Text = "ProfilePage";
@@ -177,7 +179,6 @@
         #endregion
 
         private Button backButton;
-        private TextBox headerLabel;
         private ComboBox changeIconCombo;
         private Label usernameLabel;
         private ProgressBar levelProgress;
@@ -188,5 +189,6 @@
         private Button shopButton;
         private Button signOutButton;
         private Button deleteAccountButton;
+        private Label headerLabel;
     }
 }
