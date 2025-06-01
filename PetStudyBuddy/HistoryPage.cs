@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace PetStudyBuddy
 {
-    public partial class HistoryPage: Form
+    public partial class HistoryPage : Form
     {
         public HistoryPage()
         {
             InitializeComponent();
+        }
+
+        private void BackButton_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
