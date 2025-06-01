@@ -1,6 +1,7 @@
 
 using Microsoft.Data.Sqlite;
 using SQLitePCL;
+using System.Diagnostics;
 
 namespace PetStudyBuddy
 {
@@ -19,22 +20,23 @@ namespace PetStudyBuddy
 
             try
             {
-                
 
-                string con = @"Data Source=petStudyBuddy.db;";
-                using (SqliteConnection MyConnection = new SqliteConnection(con))
+
+                string dbPath = @"D:\Apps\VisualStudioSource\repos\PetStudyBuddy\PetStudyBuddy\petStudy.db";
+                string con = $"Data Source={dbPath};";
+
+                using (var connection = new SqliteConnection(con))
                 {
-                    MyConnection.Open();
-                    // Optional: show a success message for testing
-                    // MessageBox.Show("Database connected: " + MyConnection.State);
+                    connection.Open();
+                          
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Database connection failed:\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return; // Exit the app if DB connection fails
+                return;
             }
-            Application.Run(new Form1());
+            Application.Run(new MainPage());
         }
     }
 }
