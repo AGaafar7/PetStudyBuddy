@@ -18,17 +18,18 @@ namespace PetStudyBuddy
 
         private void loginHandler(object sender, EventArgs e) {
            
-            string email = emailField.Text.Trim();
+            string username = emailField.Text.Trim();
             string password = passwordField.Text.Trim();
 
-            if (string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password))
+            if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
             {
-                MessageBox.Show("Please enter both email and password.");
+                MessageBox.Show("Please enter both username and password.");
                 return;
             }
 
             try
             {
+
 
                 string dbPath = @"D:\Apps\VisualStudioSource\repos\PetStudyBuddy\PetStudyBuddy\petStudy.db";
                 string con = $"Data Source={dbPath};";
@@ -41,7 +42,7 @@ namespace PetStudyBuddy
 
                     using (var cmdd = new SqliteCommand(query, connection))
                     {
-                        cmdd.Parameters.AddWithValue("@username", email);
+                        cmdd.Parameters.AddWithValue("@username", username);
                         cmdd.Parameters.AddWithValue("@password", password);
 
                         int count = Convert.ToInt32(cmdd.ExecuteScalar());
@@ -58,7 +59,7 @@ namespace PetStudyBuddy
                         }
                         else
                         {
-                            MessageBox.Show("Invalid email or password.");
+                            MessageBox.Show("Invalid username or password.");
                         }
                     }
                 }
