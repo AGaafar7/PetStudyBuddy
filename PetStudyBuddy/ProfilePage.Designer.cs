@@ -28,48 +28,146 @@
         /// </summary>
         private void InitializeComponent()
         {
-            button1 = new Button();
-            textBox1 = new TextBox();
-            button2 = new Button();
+            backButton = new Button();
+            headerLabel = new TextBox();
+            changeIconCombo = new ComboBox();
+            usernameLabel = new Label();
+            levelProgress = new ProgressBar();
+            sqliteCommand1 = new Microsoft.Data.Sqlite.SqliteCommand();
+            levelLabel = new Label();
+            tasksCompletedLabel = new Label();
+            goToHistory = new LinkLabel();
+            shopButton = new Button();
+            signOutButton = new Button();
+            deleteAccountButton = new Button();
             SuspendLayout();
             // 
-            // button1
+            // backButton
             // 
-            button1.Location = new Point(23, 12);
-            button1.Name = "button1";
-            button1.Size = new Size(94, 29);
-            button1.TabIndex = 0;
-            button1.Text = "Back";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            backButton.Location = new Point(23, 12);
+            backButton.Name = "backButton";
+            backButton.Size = new Size(94, 29);
+            backButton.TabIndex = 0;
+            backButton.Text = "Back";
+            backButton.UseVisualStyleBackColor = true;
+            backButton.Click += button1_Click;
             // 
-            // textBox1
+            // headerLabel
             // 
-            textBox1.Location = new Point(306, 14);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(125, 27);
-            textBox1.TabIndex = 1;
-            textBox1.Text = "My Profile";
-            textBox1.TextChanged += textBox1_TextChanged;
+            headerLabel.Location = new Point(306, 14);
+            headerLabel.Name = "headerLabel";
+            headerLabel.Size = new Size(125, 27);
+            headerLabel.TabIndex = 1;
+            headerLabel.Text = "My Profile";
+            headerLabel.TextChanged += textBox1_TextChanged;
             // 
-            // button2
+            // changeIconCombo
             // 
-            button2.Location = new Point(281, 150);
-            button2.Name = "button2";
-            button2.Size = new Size(177, 29);
-            button2.TabIndex = 2;
-            button2.Text = "Change profile picture";
-            button2.UseVisualStyleBackColor = true;
-            button2.Click += button2_Click;
+            changeIconCombo.FormattingEnabled = true;
+            changeIconCombo.Location = new Point(290, 140);
+            changeIconCombo.Name = "changeIconCombo";
+            changeIconCombo.Size = new Size(151, 28);
+            changeIconCombo.TabIndex = 3;
+            changeIconCombo.Text = "Change profile picture";
+            // 
+            // usernameLabel
+            // 
+            usernameLabel.AutoSize = true;
+            usernameLabel.Font = new Font("Segoe UI", 12F);
+            usernameLabel.Location = new Point(320, 171);
+            usernameLabel.Name = "usernameLabel";
+            usernameLabel.Size = new Size(99, 28);
+            usernameLabel.TabIndex = 4;
+            usernameLabel.Text = "Username";
+            // 
+            // levelProgress
+            // 
+            levelProgress.Location = new Point(274, 255);
+            levelProgress.Name = "levelProgress";
+            levelProgress.Size = new Size(199, 29);
+            levelProgress.TabIndex = 5;
+            // 
+            // sqliteCommand1
+            // 
+            sqliteCommand1.CommandTimeout = 30;
+            sqliteCommand1.Connection = null;
+            sqliteCommand1.Transaction = null;
+            sqliteCommand1.UpdatedRowSource = System.Data.UpdateRowSource.None;
+            // 
+            // levelLabel
+            // 
+            levelLabel.AutoSize = true;
+            levelLabel.Location = new Point(274, 232);
+            levelLabel.Name = "levelLabel";
+            levelLabel.Size = new Size(55, 20);
+            levelLabel.TabIndex = 6;
+            levelLabel.Text = "Level 1";
+            // 
+            // tasksCompletedLabel
+            // 
+            tasksCompletedLabel.AutoSize = true;
+            tasksCompletedLabel.Location = new Point(413, 232);
+            tasksCompletedLabel.Name = "tasksCompletedLabel";
+            tasksCompletedLabel.Size = new Size(60, 20);
+            tasksCompletedLabel.TabIndex = 7;
+            tasksCompletedLabel.Text = "0/10 XP";
+            // 
+            // goToHistory
+            // 
+            goToHistory.AutoSize = true;
+            goToHistory.Location = new Point(274, 314);
+            goToHistory.Name = "goToHistory";
+            goToHistory.Size = new Size(120, 20);
+            goToHistory.TabIndex = 8;
+            goToHistory.TabStop = true;
+            goToHistory.Text = "Tasks Completed";
+            // 
+            // shopButton
+            // 
+            shopButton.Font = new Font("Segoe UI", 11F);
+            shopButton.Location = new Point(313, 349);
+            shopButton.Name = "shopButton";
+            shopButton.Size = new Size(128, 39);
+            shopButton.TabIndex = 9;
+            shopButton.Text = "View Shop";
+            shopButton.UseVisualStyleBackColor = true;
+            // 
+            // signOutButton
+            // 
+            signOutButton.ForeColor = Color.Red;
+            signOutButton.Location = new Point(274, 404);
+            signOutButton.Name = "signOutButton";
+            signOutButton.Size = new Size(94, 29);
+            signOutButton.TabIndex = 10;
+            signOutButton.Text = "Sign Out";
+            signOutButton.UseVisualStyleBackColor = true;
+            // 
+            // deleteAccountButton
+            // 
+            deleteAccountButton.ForeColor = Color.Red;
+            deleteAccountButton.Location = new Point(274, 439);
+            deleteAccountButton.Name = "deleteAccountButton";
+            deleteAccountButton.Size = new Size(136, 29);
+            deleteAccountButton.TabIndex = 11;
+            deleteAccountButton.Text = "Delete Account";
+            deleteAccountButton.UseVisualStyleBackColor = true;
             // 
             // ProfilePage
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
-            Controls.Add(button2);
-            Controls.Add(textBox1);
-            Controls.Add(button1);
+            ClientSize = new Size(746, 553);
+            Controls.Add(deleteAccountButton);
+            Controls.Add(signOutButton);
+            Controls.Add(shopButton);
+            Controls.Add(goToHistory);
+            Controls.Add(tasksCompletedLabel);
+            Controls.Add(levelLabel);
+            Controls.Add(levelProgress);
+            Controls.Add(usernameLabel);
+            Controls.Add(changeIconCombo);
+            Controls.Add(headerLabel);
+            Controls.Add(backButton);
             Name = "ProfilePage";
             Text = "ProfilePage";
             ResumeLayout(false);
@@ -78,8 +176,17 @@
 
         #endregion
 
-        private Button button1;
-        private TextBox textBox1;
-        private Button button2;
+        private Button backButton;
+        private TextBox headerLabel;
+        private ComboBox changeIconCombo;
+        private Label usernameLabel;
+        private ProgressBar levelProgress;
+        private Microsoft.Data.Sqlite.SqliteCommand sqliteCommand1;
+        private Label levelLabel;
+        private Label tasksCompletedLabel;
+        private LinkLabel goToHistory;
+        private Button shopButton;
+        private Button signOutButton;
+        private Button deleteAccountButton;
     }
 }

@@ -188,7 +188,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 511);
+            ClientSize = new Size(800, 549);
             Controls.Add(tasksList);
             Controls.Add(pointLabel);
             Controls.Add(label4);
