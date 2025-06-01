@@ -1,6 +1,14 @@
-﻿namespace PetStudyBuddy
+﻿// ProfilePage.Designer.cs - Designer code for ProfilePage
+// Modified to inherit from BasePageControl and remove Form-specific properties
+
+using PetStudyBuddy.Classes;
+using System;
+using System.Drawing;
+using System.Windows.Forms;
+
+namespace PetStudyBuddy
 {
-    partial class ProfilePage
+    partial class ProfilePage : BasePageControl
     {
         /// <summary>
         /// Required designer variable.
@@ -32,7 +40,6 @@
             changeIconCombo = new ComboBox();
             usernameLabel = new Label();
             levelProgress = new ProgressBar();
-            sqliteCommand1 = new Microsoft.Data.Sqlite.SqliteCommand();
             levelLabel = new Label();
             tasksCompletedLabel = new Label();
             goToHistory = new LinkLabel();
@@ -77,13 +84,6 @@
             levelProgress.Name = "levelProgress";
             levelProgress.Size = new Size(199, 29);
             levelProgress.TabIndex = 5;
-            // 
-            // sqliteCommand1
-            // 
-            sqliteCommand1.CommandTimeout = 30;
-            sqliteCommand1.Connection = null;
-            sqliteCommand1.Transaction = null;
-            sqliteCommand1.UpdatedRowSource = System.Data.UpdateRowSource.None;
             // 
             // levelLabel
             // 
@@ -153,12 +153,18 @@
             headerLabel.TabIndex = 12;
             headerLabel.Text = "My Profile";
             headerLabel.TextAlign = ContentAlignment.MiddleLeft;
+            headerLabel.Click += headerLabel_Click;
             // 
             // ProfilePage
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
-            AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(746, 553);
+            // REMOVED Form-specific properties
+            // AutoScaleDimensions = new SizeF(8F, 20F);
+            // AutoScaleMode = AutoScaleMode.Font;
+            // ClientSize = new Size(746, 553);
+
+            // Added UserControl-specific property
+            Size = new Size(746, 553);
+
             Controls.Add(headerLabel);
             Controls.Add(deleteAccountButton);
             Controls.Add(signOutButton);
@@ -171,7 +177,10 @@
             Controls.Add(changeIconCombo);
             Controls.Add(backButton);
             Name = "ProfilePage";
-            Text = "ProfilePage";
+
+            // REMOVED Form-specific property
+            // Text = "ProfilePage";
+
             ResumeLayout(false);
             PerformLayout();
         }
@@ -182,7 +191,6 @@
         private ComboBox changeIconCombo;
         private Label usernameLabel;
         private ProgressBar levelProgress;
-        private Microsoft.Data.Sqlite.SqliteCommand sqliteCommand1;
         private Label levelLabel;
         private Label tasksCompletedLabel;
         private LinkLabel goToHistory;

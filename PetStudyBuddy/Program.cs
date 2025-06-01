@@ -1,42 +1,51 @@
+// Program.cs - Entry point for the Pet Study Buddy application
+// Modified to start with MainForm instead of Form1
 
 using Microsoft.Data.Sqlite;
 using SQLitePCL;
-using System.Diagnostics;
+using System;
+using System.Windows.Forms;
 
 namespace PetStudyBuddy
 {
     internal static class Program
     {
         /// <summary>
-        ///  The main entry point for the application.
+        /// The main entry point for the application.
         /// </summary>
         [STAThread]
         static void Main()
         {
+            // Initialize SQLite batteries for database support
             Batteries_V2.Init();
-            // To customize application configuration such as set high DPI settings or default font,
-            // see https://aka.ms/applicationconfiguration.
+
+            // Initialize application configuration
             ApplicationConfiguration.Initialize();
 
             try
             {
-
-
+                // Test database connection
                 string dbPath = @"D:\Apps\VisualStudioSource\repos\PetStudyBuddy\PetStudyBuddy\petStudy.db";
-                string con = $"Data Source={dbPath};";
+                string connectionString = $"Data Source={dbPath};";
 
-                using (var connection = new SqliteConnection(con))
+                using (var connection = new SqliteConnection(connectionString))
                 {
                     connection.Open();
-                          
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Database connection failed:\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(
+                    "Database connection failed:\n" + ex.Message,
+                    "Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                );
                 return;
             }
-            Application.Run(new Form1());
+
+            // Start the application with MainForm
+            Application.Run(new MainForm());
         }
     }
 }

@@ -1,6 +1,14 @@
-﻿namespace PetStudyBuddy
+﻿// ShopPage.Designer.cs - Designer code for the Shop page
+// Modified to inherit from BasePageControl instead of Form
+
+using PetStudyBuddy.Classes;
+using System;
+using System.Drawing;
+using System.Windows.Forms;
+
+namespace PetStudyBuddy
 {
-    partial class ShopPage
+    partial class ShopPage : BasePageControl
     {
         /// <summary>
         /// Required designer variable.
@@ -80,7 +88,6 @@
             button1.TabIndex = 2;
             button1.Text = "Buy";
             button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
             // 
             // label2
             // 
@@ -90,7 +97,6 @@
             label2.Size = new Size(26, 20);
             label2.TabIndex = 3;
             label2.Text = "XP";
-            label2.Click += label2_Click;
             // 
             // label3
             // 
@@ -222,13 +228,17 @@
             label10.Size = new Size(17, 20);
             label10.TabIndex = 18;
             label10.Text = "0";
-            label10.Click += label10_Click;
             // 
             // ShopPage
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
-            AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            // REMOVED Form-specific properties
+            // AutoScaleDimensions = new SizeF(8F, 20F);
+            // AutoScaleMode = AutoScaleMode.Font;
+            // ClientSize = new Size(800, 450);
+
+            // UserControl property
+            Size = new Size(800, 450);
+
             Controls.Add(label10);
             Controls.Add(button4);
             Controls.Add(button3);
@@ -249,7 +259,10 @@
             Controls.Add(label1);
             Controls.Add(linkLabel1);
             Name = "ShopPage";
-            Text = "ShopPage";
+
+            // REMOVED Form-specific property
+            // Text = "ShopPage";
+
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
