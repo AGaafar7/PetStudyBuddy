@@ -41,27 +41,30 @@
             startTimerBTN = new Button();
             countDownTimer = new System.Windows.Forms.Timer(components);
             stopTimerBTN = new Button();
-            shopBTN = new Button();
-            label4 = new Label();
-            pointLabel = new Label();
             tasksList = new FlowLayoutPanel();
+            toShop = new LinkLabel();
+            plusTimer = new Button();
+            minusTimer = new Button();
+            pictureBox2 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(321, 22);
+            label1.Location = new Point(321, 17);
             label1.Name = "label1";
             label1.Size = new Size(125, 20);
             label1.TabIndex = 0;
             label1.Text = "Pet Study Buddy";
             label1.TextAlign = ContentAlignment.TopCenter;
+            label1.Click += label1_Click;
             // 
             // progressBar1
             // 
-            progressBar1.Location = new Point(284, 216);
+            progressBar1.Location = new Point(321, 214);
             progressBar1.Name = "progressBar1";
             progressBar1.Size = new Size(125, 18);
             progressBar1.TabIndex = 1;
@@ -69,7 +72,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(415, 214);
+            label2.Location = new Point(452, 212);
             label2.Name = "label2";
             label2.Size = new Size(31, 20);
             label2.TabIndex = 2;
@@ -81,7 +84,7 @@
             addBTN.FlatAppearance.BorderSize = 0;
             addBTN.FlatStyle = FlatStyle.Flat;
             addBTN.Image = (Image)resources.GetObject("addBTN.Image");
-            addBTN.Location = new Point(723, 439);
+            addBTN.Location = new Point(29, 441);
             addBTN.Name = "addBTN";
             addBTN.Size = new Size(42, 45);
             addBTN.TabIndex = 4;
@@ -102,7 +105,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(541, 22);
+            label3.Location = new Point(673, 22);
             label3.Name = "label3";
             label3.Size = new Size(17, 20);
             label3.TabIndex = 6;
@@ -113,7 +116,7 @@
             pictureBox1.BackColor = Color.Transparent;
             pictureBox1.BackgroundImage = (Image)resources.GetObject("pictureBox1.BackgroundImage");
             pictureBox1.BackgroundImageLayout = ImageLayout.Center;
-            pictureBox1.Location = new Point(500, 12);
+            pictureBox1.Location = new Point(632, 12);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(35, 37);
             pictureBox1.TabIndex = 7;
@@ -122,9 +125,10 @@
             // countDownLabel
             // 
             countDownLabel.AutoSize = true;
-            countDownLabel.Location = new Point(474, 303);
+            countDownLabel.Font = new Font("Segoe UI", 18F);
+            countDownLabel.Location = new Point(466, 301);
             countDownLabel.Name = "countDownLabel";
-            countDownLabel.Size = new Size(44, 20);
+            countDownLabel.Size = new Size(89, 41);
             countDownLabel.TabIndex = 8;
             countDownLabel.Text = "25:00";
             // 
@@ -150,33 +154,6 @@
             stopTimerBTN.Text = "Stop";
             stopTimerBTN.UseVisualStyleBackColor = true;
             // 
-            // shopBTN
-            // 
-            shopBTN.Location = new Point(660, 21);
-            shopBTN.Name = "shopBTN";
-            shopBTN.Size = new Size(94, 29);
-            shopBTN.TabIndex = 11;
-            shopBTN.Text = "Shop";
-            shopBTN.UseVisualStyleBackColor = true;
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Location = new Point(588, 25);
-            label4.Name = "label4";
-            label4.Size = new Size(37, 20);
-            label4.TabIndex = 12;
-            label4.Text = "XP : ";
-            // 
-            // pointLabel
-            // 
-            pointLabel.AutoSize = true;
-            pointLabel.Location = new Point(616, 26);
-            pointLabel.Name = "pointLabel";
-            pointLabel.Size = new Size(17, 20);
-            pointLabel.TabIndex = 13;
-            pointLabel.Text = "0";
-            // 
             // tasksList
             // 
             tasksList.Location = new Point(29, 275);
@@ -184,28 +161,66 @@
             tasksList.Size = new Size(250, 125);
             tasksList.TabIndex = 14;
             // 
+            // toShop
+            // 
+            toShop.AutoSize = true;
+            toShop.Location = new Point(710, 22);
+            toShop.Name = "toShop";
+            toShop.Size = new Size(45, 20);
+            toShop.TabIndex = 15;
+            toShop.TabStop = true;
+            toShop.Text = "XP : 0";
+            // 
+            // plusTimer
+            // 
+            plusTimer.Location = new Point(561, 313);
+            plusTimer.Name = "plusTimer";
+            plusTimer.Size = new Size(31, 29);
+            plusTimer.TabIndex = 16;
+            plusTimer.Text = "+";
+            plusTimer.UseVisualStyleBackColor = true;
+            // 
+            // minusTimer
+            // 
+            minusTimer.Location = new Point(429, 314);
+            minusTimer.Name = "minusTimer";
+            minusTimer.Size = new Size(31, 29);
+            minusTimer.TabIndex = 17;
+            minusTimer.Text = "-";
+            minusTimer.UseVisualStyleBackColor = true;
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.Location = new Point(274, 45);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(226, 149);
+            pictureBox2.TabIndex = 18;
+            pictureBox2.TabStop = false;
+            // 
             // MainPage
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 511);
+            Controls.Add(pictureBox2);
+            Controls.Add(minusTimer);
+            Controls.Add(plusTimer);
+            Controls.Add(toShop);
+            Controls.Add(addBTN);
             Controls.Add(tasksList);
-            Controls.Add(pointLabel);
-            Controls.Add(label4);
-            Controls.Add(shopBTN);
             Controls.Add(stopTimerBTN);
             Controls.Add(startTimerBTN);
             Controls.Add(countDownLabel);
             Controls.Add(pictureBox1);
             Controls.Add(label3);
             Controls.Add(profilePic);
-            Controls.Add(addBTN);
             Controls.Add(label2);
             Controls.Add(progressBar1);
             Controls.Add(label1);
             Name = "MainPage";
             Text = "Main";
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -224,9 +239,10 @@
         private System.Windows.Forms.Timer countDownTimer;
         private TimeSpan timeLeft;
         private Button stopTimerBTN;
-        private Button shopBTN;
-        private Label label4;
-        private Label pointLabel;
         private FlowLayoutPanel tasksList;
+        private LinkLabel toShop;
+        private Button plusTimer;
+        private Button minusTimer;
+        private PictureBox pictureBox2;
     }
 }
