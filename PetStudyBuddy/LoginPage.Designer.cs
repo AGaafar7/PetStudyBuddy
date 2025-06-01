@@ -40,17 +40,17 @@
             // 
             emailField.Location = new Point(359, 174);
             emailField.Name = "emailField";
+            emailField.PlaceholderText = "Enter your username";
             emailField.Size = new Size(150, 27);
             emailField.TabIndex = 0;
-            emailField.Text = "Enter your username";
             // 
             // passwordField
             // 
             passwordField.Location = new Point(359, 224);
             passwordField.Name = "passwordField";
+            passwordField.PlaceholderText = "Enter your password";
             passwordField.Size = new Size(150, 27);
             passwordField.TabIndex = 1;
-            passwordField.Text = "Enter your password";
             // 
             // loginButton
             // 

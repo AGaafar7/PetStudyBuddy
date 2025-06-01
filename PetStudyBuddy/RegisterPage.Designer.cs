@@ -49,33 +49,34 @@
             // 
             firstNameField.Location = new Point(308, 199);
             firstNameField.Name = "firstNameField";
+            firstNameField.PlaceholderText = "Enter your first name";
             firstNameField.Size = new Size(166, 27);
             firstNameField.TabIndex = 0;
-            firstNameField.Text = "Enter your first name";
             // 
             // lastNameField
             // 
             lastNameField.Location = new Point(308, 252);
             lastNameField.Name = "lastNameField";
+            lastNameField.PlaceholderText = "Enter your last name";
             lastNameField.Size = new Size(166, 27);
             lastNameField.TabIndex = 1;
-            lastNameField.Text = "Enter your last name";
+            lastNameField.TextChanged += lastNameField_TextChanged;
             // 
             // userNameField
             // 
             userNameField.Location = new Point(308, 295);
             userNameField.Name = "userNameField";
+            userNameField.PlaceholderText = "Enter your username";
             userNameField.Size = new Size(166, 27);
             userNameField.TabIndex = 2;
-            userNameField.Text = "Enter your username";
             // 
             // passwordField
             // 
             passwordField.Location = new Point(308, 341);
             passwordField.Name = "passwordField";
+            passwordField.PlaceholderText = "Enter a password";
             passwordField.Size = new Size(166, 27);
             passwordField.TabIndex = 3;
-            passwordField.Text = "Enter a password";
             // 
             // registerBTN
             // 

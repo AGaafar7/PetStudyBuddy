@@ -15,17 +15,21 @@ namespace PetStudyBuddy
 {
     public partial class RegisterPage : Form
     {
+        private string imageSelected;
         public RegisterPage()
         {
             InitializeComponent();
+            registerBTN.Click -= registerHandler;
             registerBTN.Click += registerHandler;
             loginBTN.Click += navLoginHandler;
-           pictureBox1.Click += imageOneClickHandler;
-           pictureBox2.Click += imageTwoClickHandler;
-              pictureBox3.Click += imageThreeClickHandler;
-              pictureBox4.Click += imageFourClickHandler;
+            pictureBox1.Click += imageOneClickHandler;
+            pictureBox2.Click += imageTwoClickHandler;
+            pictureBox3.Click += imageThreeClickHandler;
+            pictureBox4.Click += imageFourClickHandler;
+            imageSelected = ImageToBase64(pictureBox1);
         }
-        private int imageSelected = 0; 
+        
+        private bool isRegistering = false;
 
         private void navLoginHandler(object sender, EventArgs e)
         {
@@ -33,104 +37,137 @@ namespace PetStudyBuddy
             loginPage.Show();
             this.Hide();
         }
+
+        private string ImageToBase64(PictureBox pb)
+        {
+            if (pb.Image == null)
+                return null;
+
+            using (var ms = new System.IO.MemoryStream())
+            {
+                
+                pb.Image.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
+
+                byte[] imageBytes = ms.ToArray();
+
+                
+                string base64String = Convert.ToBase64String(imageBytes);
+
+                return base64String;
+            }
+        }
+
         private void imageOneClickHandler(object sender, EventArgs e)
         {
-            imageSelected = 0;
+            imageSelected = ImageToBase64(pictureBox1);
+
             pictureBox1.BorderStyle = BorderStyle.Fixed3D;
             pictureBox1.BackColor = Color.LightBlue;
             pictureBox2.BorderStyle = BorderStyle.None;
+            pictureBox2.BackColor = Color.Transparent;
             pictureBox3.BorderStyle = BorderStyle.None;
+            pictureBox3.BackColor = Color.Transparent;
             pictureBox4.BorderStyle = BorderStyle.None;
+            pictureBox4.BackColor = Color.Transparent;
         }
         private void imageTwoClickHandler(object sender, EventArgs e)
         {
-            imageSelected = 1;
+            imageSelected = ImageToBase64(pictureBox2);
             pictureBox1.BorderStyle = BorderStyle.None;
+            pictureBox1.BackColor = Color.Transparent;
             pictureBox2.BorderStyle = BorderStyle.Fixed3D;
             pictureBox2.BackColor = Color.LightBlue;
             pictureBox3.BorderStyle = BorderStyle.None;
+            pictureBox3.BackColor = Color.Transparent;
             pictureBox4.BorderStyle = BorderStyle.None;
+            pictureBox4.BackColor = Color.Transparent;
         }
         private void imageThreeClickHandler(object sender, EventArgs e)
         {
-            imageSelected = 2;
+            imageSelected = ImageToBase64(pictureBox3);
             pictureBox1.BorderStyle = BorderStyle.None;
+            pictureBox1.BackColor = Color.Transparent;
             pictureBox2.BorderStyle = BorderStyle.None;
+            pictureBox2.BackColor = Color.Transparent;
             pictureBox3.BorderStyle = BorderStyle.Fixed3D;
             pictureBox3.BackColor = Color.LightBlue;
             pictureBox4.BorderStyle = BorderStyle.None;
+            pictureBox4.BackColor = Color.Transparent;
         }
         private void imageFourClickHandler(object sender, EventArgs e)
         {
-            imageSelected = 3;
+            imageSelected = ImageToBase64(pictureBox4);
             pictureBox1.BorderStyle = BorderStyle.None;
+            pictureBox1.BackColor = Color.Transparent;
             pictureBox2.BorderStyle = BorderStyle.None;
+            pictureBox2.BackColor = Color.Transparent;
             pictureBox3.BorderStyle = BorderStyle.None;
+            pictureBox3.BackColor = Color.Transparent;
             pictureBox4.BorderStyle = BorderStyle.Fixed3D;
             pictureBox4.BackColor = Color.LightBlue;
         }
 
         private void registerHandler(object sender, EventArgs e)
         {
+            if (isRegistering) return;
+            isRegistering = true;
             string firstName = firstNameField.Text.Trim();
             string lastName = lastNameField.Text.Trim();
             string userName = userNameField.Text.Trim();
             string password = passwordField.Text.Trim();
 
-            if (string.IsNullOrEmpty(firstName) || string.IsNullOrEmpty(lastName) || string.IsNullOrEmpty(userName) || string.IsNullOrEmpty(password))
+            if (string.IsNullOrEmpty(firstName) || string.IsNullOrEmpty(lastName) ||
+                string.IsNullOrEmpty(userName) || string.IsNullOrEmpty(password))
             {
                 MessageBox.Show("Please fill in all fields.");
                 return;
             }
-            else
+
+            try
             {
-                try
+                string dbPath = @"D:\Apps\VisualStudioSource\repos\PetStudyBuddy\PetStudyBuddy\petStudy.db";
+                string con = $"Data Source={dbPath};";
+
+                using (var connection = new SqliteConnection(con))
                 {
+                    connection.Open();
+                    string insertQuery = "INSERT INTO users (firstname, lastname, username, password, petid, petlevel, profilepic) " +
+                                         "VALUES (@firstName, @lastName, @username, @password, '101', 1, @profilepic)";
 
-                    string dbPath = @"D:\Apps\VisualStudioSource\repos\PetStudyBuddy\PetStudyBuddy\petStudy.db";
-                    string con = $"Data Source={dbPath};";
-
-                    using (var connection = new SqliteConnection(con))
+                    using (var insertCmd = new SqliteCommand(insertQuery, connection))
                     {
-                        connection.Open();
+                        insertCmd.Parameters.AddWithValue("@firstName", firstName);
+                        insertCmd.Parameters.AddWithValue("@lastName", lastName);
+                        insertCmd.Parameters.AddWithValue("@username", userName);
+                        insertCmd.Parameters.AddWithValue("@password", password);
+                        insertCmd.Parameters.AddWithValue("@profilepic", imageSelected);
 
-                        string query = "INSERT INTO users (firstname, lastname, username, password, petid, petlevel) VALUES (@firstName, @lastName, @username, @password, '101', 1)";
+                        int affectedRows = insertCmd.ExecuteNonQuery();
 
-                        using (var cmdd = new SqliteCommand(query, connection))
+                        if (affectedRows == 1)
                         {
-                            cmdd.Parameters.AddWithValue("@firstName", firstName);
-                            cmdd.Parameters.AddWithValue("@lastName", lastName);
-                            cmdd.Parameters.AddWithValue("@username", userName);
-                            cmdd.Parameters.AddWithValue("@password", password);
-
-                            int count = Convert.ToInt32(cmdd.ExecuteScalar());
-
-                            if (count == 1)
-                            {
-                                MessageBox.Show("Login successful!");
-
-                                // TODO: Navigate to the main screen here
-                                // Example:
-                                // MainForm mainForm = new MainForm();
-                                // mainForm.Show();
-                                // this.Hide();
-                            }
-                            else
-                            {
-                                MessageBox.Show("Invalid email or password.");
-                            }
+                            MessageBox.Show("Registration successful!");
+                            MainPage mainForm = new MainPage();
+                            mainForm.Show();
+                            this.Hide();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Registration failed. Please try again.");
                         }
                     }
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error during login: " + ex.Message);
-                }
-
+                isRegistering = false;
             }
-
-
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error during registration: " + ex.Message);
+            }
         }
 
+        private void lastNameField_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
