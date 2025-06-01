@@ -58,7 +58,7 @@
             userNameField.Size = new Size(166, 27);
             userNameField.TabIndex = 2;
             userNameField.Text = "Enter your username";
-            userNameField.TextChanged += userNameField_TextChanged;
+            
             // 
             // passwordField
             // 
@@ -76,7 +76,7 @@
             registerBTN.TabIndex = 4;
             registerBTN.Text = "Register";
             registerBTN.UseVisualStyleBackColor = true;
-            registerBTN.Click += registerBTN_Click;
+            registerBTN.Click += registerHandler;
             // 
             // RegisterPage
             // 
