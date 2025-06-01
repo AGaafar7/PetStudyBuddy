@@ -32,7 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainPage));
             label1 = new Label();
             progressBar1 = new ProgressBar();
-            label2 = new Label();
+            totalItemsChecker = new Label();
             addBTN = new Button();
             profilePic = new Button();
             label3 = new Label();
@@ -53,14 +53,13 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(321, 17);
+            label1.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            label1.Location = new Point(315, 9);
             label1.Name = "label1";
-            label1.Size = new Size(125, 20);
+            label1.Size = new Size(168, 28);
             label1.TabIndex = 0;
             label1.Text = "Pet Study Buddy";
             label1.TextAlign = ContentAlignment.TopCenter;
-            label1.Click += label1_Click;
             // 
             // progressBar1
             // 
@@ -69,14 +68,14 @@
             progressBar1.Size = new Size(125, 18);
             progressBar1.TabIndex = 1;
             // 
-            // label2
+            // totalItemsChecker
             // 
-            label2.AutoSize = true;
-            label2.Location = new Point(452, 212);
-            label2.Name = "label2";
-            label2.Size = new Size(31, 20);
-            label2.TabIndex = 2;
-            label2.Text = "0/0";
+            totalItemsChecker.AutoSize = true;
+            totalItemsChecker.Location = new Point(452, 212);
+            totalItemsChecker.Name = "totalItemsChecker";
+            totalItemsChecker.Size = new Size(31, 20);
+            totalItemsChecker.TabIndex = 2;
+            totalItemsChecker.Text = "0/0";
             // 
             // addBTN
             // 
@@ -109,7 +108,7 @@
             label3.Name = "label3";
             label3.Size = new Size(17, 20);
             label3.TabIndex = 6;
-            label3.Text = "0";
+            label3.Text = "1";
             // 
             // pictureBox1
             // 
@@ -138,7 +137,7 @@
             startTimerBTN.Name = "startTimerBTN";
             startTimerBTN.Size = new Size(94, 29);
             startTimerBTN.TabIndex = 9;
-            startTimerBTN.Text = "Start";
+            startTimerBTN.Text = "Play";
             startTimerBTN.UseVisualStyleBackColor = true;
             // 
             // countDownTimer
@@ -214,7 +213,7 @@
             Controls.Add(pictureBox1);
             Controls.Add(label3);
             Controls.Add(profilePic);
-            Controls.Add(label2);
+            Controls.Add(totalItemsChecker);
             Controls.Add(progressBar1);
             Controls.Add(label1);
             Name = "MainPage";
@@ -229,7 +228,7 @@
 
         private Label label1;
         private ProgressBar progressBar1;
-        private Label label2;
+        private Label totalItemsChecker;
         private Button addBTN;
         private Button profilePic;
         private Label label3;
