@@ -1,67 +1,24 @@
-﻿// HistoryPage.cs - Shows completed tasks history
-// Converted from Form to BasePageControl for OOP architecture
-
 using System;
-using System.Windows.Forms;
-using System.IO;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
 using System.Text;
-using PetStudyBuddy.Classes;
+using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace PetStudyBuddy
 {
-    public partial class HistoryPage : BasePageControl
+    public partial class HistoryPage : Form
     {
-        // --- CONSTRUCTOR ---
-        public HistoryPage(MainForm parent) : base(parent)
+        public HistoryPage()
         {
             InitializeComponent();
             LoadTaskHistory();
         }
 
-        private void AddTaskToPanel(Classes.Task task)
-        {
-            Panel taskRow = new Panel
-            {
-                Height = 35,
-                Width = taskListPanel.Width - 20,
-                BorderStyle = BorderStyle.FixedSingle,
-                Margin = new Padding(0, 0, 0, 5)
-            };
-
-            Label titleLabel = new Label
-            {
-                Text = task.Title,
-                Font = new System.Drawing.Font("Segoe UI", 9),
-                Location = new System.Drawing.Point(10, 7),
-                Width = 150
-            };
-
-            Label dateCompletedLabel = new Label
-            {
-                Text = task.CompletedDate?.ToString("yyyy-MM-dd HH:mm") ?? "Unknown",
-                Font = new System.Drawing.Font("Segoe UI", 9),
-                Location = new System.Drawing.Point(170, 7),
-                Width = 150
-            };
-
-            Label xpLabel = new Label
-            {
-                Text = task.XPReward.ToString(),
-                Font = new System.Drawing.Font("Segoe UI", 9),
-                Location = new System.Drawing.Point(330, 7),
-                Width = 50
-            };
-
-            taskRow.Controls.Add(titleLabel);
-            taskRow.Controls.Add(dateCompletedLabel);
-            taskRow.Controls.Add(xpLabel);
-
-            taskListPanel.Controls.Add(taskRow);
-        }
-
-        // --- LIFECYCLE METHODS OVERRIDE ---
-
-        protected override void OnPageEnter()
+        private void BackButton_Click(object sender, EventArgs e)
         {
             this.Close(); // or NavigateBack();
         }
@@ -122,5 +79,5 @@ namespace PetStudyBuddy
 
             labelCompleted.Text = $"✔ Tasks Completed: {completedCount}";
         }
-}
+    }
 }

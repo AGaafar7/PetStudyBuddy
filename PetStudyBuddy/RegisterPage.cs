@@ -30,7 +30,7 @@ namespace PetStudyBuddy
             pictureBox4.Click += imageFourClickHandler;
             imageSelected = ImageToBase64(pictureBox1);
         }
-        
+
         private bool isRegistering = false;
 
         private void navLoginHandler(object sender, EventArgs e)
@@ -47,12 +47,12 @@ namespace PetStudyBuddy
 
             using (var ms = new System.IO.MemoryStream())
             {
-                
+
                 pb.Image.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
 
                 byte[] imageBytes = ms.ToArray();
 
-                
+
                 string base64String = Convert.ToBase64String(imageBytes);
 
                 return base64String;

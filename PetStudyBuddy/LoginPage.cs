@@ -15,12 +15,13 @@ namespace PetStudyBuddy
             dbManager = new DatabaseManager();
             loginButton.Click += loginHandler;
             register.Click += registerHandler;
-            
+
 
         }
 
-        private void loginHandler(object sender, EventArgs e) {
-           
+        private void loginHandler(object sender, EventArgs e)
+        {
+
             string username = emailField.Text.Trim();
             string password = passwordField.Text.Trim();
 
