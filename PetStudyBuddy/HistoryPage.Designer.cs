@@ -29,65 +29,42 @@
             this.SuspendLayout();
 
             // BackButton
-            this.BackButton.Location = new System.Drawing.Point(20, 20);
-            this.BackButton.Name = "BackButton";
-            this.BackButton.Size = new System.Drawing.Size(94, 29);
-            this.BackButton.Text = "← Back";
-            this.BackButton.UseVisualStyleBackColor = true;
-            this.BackButton.Click += new System.EventHandler(this.BackButton_Click);
-
-            // ExportButton
-            this.ExportButton.Location = new System.Drawing.Point(130, 20);
-            this.ExportButton.Name = "ExportButton";
-            this.ExportButton.Size = new System.Drawing.Size(94, 29);
-            this.ExportButton.Text = "Export";
-            this.ExportButton.UseVisualStyleBackColor = true;
-            this.ExportButton.Click += new System.EventHandler(this.ExportButton_Click);
-
-            // labelHeader
-            this.labelHeader.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold);
-            this.labelHeader.Location = new System.Drawing.Point(0, 60);
-            this.labelHeader.Size = new System.Drawing.Size(800, 40);
-            this.labelHeader.Text = "Task History";
-            this.labelHeader.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-
-            // labelCompleted
-            this.labelCompleted.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.labelCompleted.Location = new System.Drawing.Point(20, 110);
-            this.labelCompleted.Size = new System.Drawing.Size(300, 30);
-            this.labelCompleted.Text = "✔ Tasks Completed: 0";
-
-            // taskListView
-            this.taskListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-        this.columnTask,
-        this.columnDate,
-        this.columnStatus});
-            this.taskListView.FullRowSelect = true;
-            this.taskListView.GridLines = true;
-            this.taskListView.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
-            this.taskListView.Location = new System.Drawing.Point(20, 160);
-            this.taskListView.Size = new System.Drawing.Size(760, 200);
-            this.taskListView.View = System.Windows.Forms.View.Details;
-
-            // columnTask
-            this.columnTask.Text = "Task";
-            this.columnTask.Width = 300;
-
-            // columnDate
-            this.columnDate.Text = "Date";
-            this.columnDate.Width = 200;
-
-            // columnStatus
-            this.columnStatus.Text = "Status";
-            this.columnStatus.Width = 200;
-
-            // dashboardButton
-            this.dashboardButton.Location = new System.Drawing.Point(320, 380);
-            this.dashboardButton.Size = new System.Drawing.Size(160, 40);
-            this.dashboardButton.Text = "Return to Home";
-            this.dashboardButton.UseVisualStyleBackColor = true;
-            this.dashboardButton.Click += new System.EventHandler(this.DashboardButton_Click);
-
+            // 
+            BackButton.Location = new Point(17, 20);
+            BackButton.Name = "BackButton";
+            BackButton.Size = new Size(94, 29);
+            BackButton.TabIndex = 0;
+            BackButton.Text = "Back";
+            BackButton.UseVisualStyleBackColor = true;
+            BackButton.Click += BackButton_Click;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(329, 29);
+            label1.Name = "label1";
+            label1.Size = new Size(87, 20);
+            label1.TabIndex = 1;
+            label1.Text = "Task History";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(347, 68);
+            label2.Name = "label2";
+            label2.Size = new Size(50, 20);
+            label2.TabIndex = 2;
+            label2.Text = "label2";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(313, 114);
+            label3.Name = "label3";
+            label3.Size = new Size(120, 20);
+            label3.TabIndex = 3;
+            label3.Text = "Tasks Completed";
+            // 
             // HistoryPage
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.ExportButton);

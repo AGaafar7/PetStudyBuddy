@@ -9,7 +9,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace PetStudyBuddy
