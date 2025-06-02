@@ -47,10 +47,10 @@
             huskyBTN = new Button();
             samoyedBTN = new Button();
             label10 = new Label();
-            samoyedprice = new Label();
-            huskyPrice = new Label();
-            goldenPrice = new Label();
             sheperdPrice = new Label();
+            goldenPrice = new Label();
+            huskyPrice = new Label();
+            samoyedprice = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
@@ -107,7 +107,6 @@
             // 
             // pictureBox1
             // 
-            pictureBox1.BackgroundImage = Properties.Resources.sheperd;
             pictureBox1.Location = new Point(100, 166);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(125, 62);
@@ -116,7 +115,6 @@
             // 
             // pictureBox2
             // 
-            pictureBox2.BackgroundImage = Properties.Resources.golden;
             pictureBox2.Location = new Point(275, 166);
             pictureBox2.Name = "pictureBox2";
             pictureBox2.Size = new Size(125, 62);
@@ -125,7 +123,6 @@
             // 
             // pictureBox3
             // 
-            pictureBox3.BackgroundImage = Properties.Resources.husky;
             pictureBox3.Location = new Point(434, 166);
             pictureBox3.Name = "pictureBox3";
             pictureBox3.Size = new Size(125, 62);
@@ -135,7 +132,6 @@
             // 
             // pictureBox4
             // 
-            pictureBox4.BackgroundImage = Properties.Resources.samoyed;
             pictureBox4.Location = new Point(602, 166);
             pictureBox4.Name = "pictureBox4";
             pictureBox4.Size = new Size(125, 62);
@@ -233,24 +229,14 @@
             label10.Text = "0";
             label10.Click += label10_Click;
             // 
-            // samoyedprice
+            // sheperdPrice
             // 
-            samoyedprice.AutoSize = true;
-            samoyedprice.Location = new Point(634, 270);
-            samoyedprice.Name = "samoyedprice";
-            samoyedprice.Size = new Size(25, 20);
-            samoyedprice.TabIndex = 19;
-            samoyedprice.Text = "50";
-            samoyedprice.Click += label11_Click;
-            // 
-            // huskyPrice
-            // 
-            huskyPrice.AutoSize = true;
-            huskyPrice.Location = new Point(466, 270);
-            huskyPrice.Name = "huskyPrice";
-            huskyPrice.Size = new Size(25, 20);
-            huskyPrice.TabIndex = 20;
-            huskyPrice.Text = "20";
+            sheperdPrice.AutoSize = true;
+            sheperdPrice.Location = new Point(132, 270);
+            sheperdPrice.Name = "sheperdPrice";
+            sheperdPrice.Size = new Size(17, 20);
+            sheperdPrice.TabIndex = 22;
+            sheperdPrice.Text = "5";
             // 
             // goldenPrice
             // 
@@ -261,14 +247,24 @@
             goldenPrice.TabIndex = 21;
             goldenPrice.Text = "10";
             // 
-            // sheperdPrice
+            // huskyPrice
             // 
-            sheperdPrice.AutoSize = true;
-            sheperdPrice.Location = new Point(132, 270);
-            sheperdPrice.Name = "sheperdPrice";
-            sheperdPrice.Size = new Size(17, 20);
-            sheperdPrice.TabIndex = 22;
-            sheperdPrice.Text = "5";
+            huskyPrice.AutoSize = true;
+            huskyPrice.Location = new Point(466, 270);
+            huskyPrice.Name = "huskyPrice";
+            huskyPrice.Size = new Size(25, 20);
+            huskyPrice.TabIndex = 20;
+            huskyPrice.Text = "20";
+            // 
+            // samoyedprice
+            // 
+            samoyedprice.AutoSize = true;
+            samoyedprice.Location = new Point(634, 270);
+            samoyedprice.Name = "samoyedprice";
+            samoyedprice.Size = new Size(25, 20);
+            samoyedprice.TabIndex = 19;
+            samoyedprice.Text = "50";
+            samoyedprice.Click += label11_Click;
             // 
             // ShopPage
             // 
@@ -329,9 +325,9 @@
         private Button huskyBTN;
         private Button samoyedBTN;
         private Label label10;
-        private Label samoyedprice;
-        private Label huskyPrice;
-        private Label goldenPrice;
         private Label sheperdPrice;
+        private Label goldenPrice;
+        private Label huskyPrice;
+        private Label samoyedprice;
     }
 }
