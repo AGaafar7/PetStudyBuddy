@@ -1,5 +1,5 @@
 ﻿using Microsoft.Data.Sqlite;
-using Microsoft.VisualBasic.ApplicationServices;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -131,7 +131,9 @@ namespace PetStudyBuddy.DataModels
 
         public User UpdateUser(int id, string username, string password, string firstName, string lastName, string profilePicture, string petId, int petLevel)
         {
+
             try
+
             {
                 OpenConnection();
                 string updateQuery = "UPDATE users SET username = @username, password = @password, firstname = @firstName, " +
@@ -197,4 +199,6 @@ namespace PetStudyBuddy.DataModels
 
 
     }
+
 }
+

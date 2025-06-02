@@ -1,4 +1,4 @@
-﻿using System.Media;
+using System.Media;
 
 namespace PetStudyBuddy
 {
