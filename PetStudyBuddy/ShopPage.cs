@@ -15,6 +15,14 @@ namespace PetStudyBuddy
         public ShopPage()
         {
             InitializeComponent();
+            BackButton.Click += handleBackButton;
+        }
+
+        private void handleBackButton(object sender, EventArgs e)
+        {
+            MainPage mainPage = new MainPage();
+            mainPage.Show();
+            this.Close();
         }
 
         private int xp = 0;

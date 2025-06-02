@@ -29,7 +29,7 @@ namespace PetStudyBuddy
             pictureBox2.Click += imageTwoClickHandler;
             pictureBox3.Click += imageThreeClickHandler;
             pictureBox4.Click += imageFourClickHandler;
-            imageSelected = ImageToBase64(pictureBox1);
+            imageSelected = "1";
         }
         
         private bool isRegistering = false;
@@ -62,7 +62,7 @@ namespace PetStudyBuddy
 
         private void imageOneClickHandler(object sender, EventArgs e)
         {
-            imageSelected = ImageToBase64(pictureBox1);
+            imageSelected = "1";
 
             pictureBox1.BorderStyle = BorderStyle.Fixed3D;
             pictureBox1.BackColor = Color.LightBlue;
@@ -75,7 +75,7 @@ namespace PetStudyBuddy
         }
         private void imageTwoClickHandler(object sender, EventArgs e)
         {
-            imageSelected = ImageToBase64(pictureBox2);
+            imageSelected = "2";
             pictureBox1.BorderStyle = BorderStyle.None;
             pictureBox1.BackColor = Color.Transparent;
             pictureBox2.BorderStyle = BorderStyle.Fixed3D;
@@ -87,7 +87,7 @@ namespace PetStudyBuddy
         }
         private void imageThreeClickHandler(object sender, EventArgs e)
         {
-            imageSelected = ImageToBase64(pictureBox3);
+            imageSelected = "3";
             pictureBox1.BorderStyle = BorderStyle.None;
             pictureBox1.BackColor = Color.Transparent;
             pictureBox2.BorderStyle = BorderStyle.None;
@@ -99,7 +99,7 @@ namespace PetStudyBuddy
         }
         private void imageFourClickHandler(object sender, EventArgs e)
         {
-            imageSelected = ImageToBase64(pictureBox4);
+            imageSelected = "4";
             pictureBox1.BorderStyle = BorderStyle.None;
             pictureBox1.BackColor = Color.Transparent;
             pictureBox2.BorderStyle = BorderStyle.None;
@@ -137,8 +137,7 @@ namespace PetStudyBuddy
                 petId: "101",
                 petLevel: 1
             );
-            //The user is null needs fixing
-            MessageBox.Show(newUser.ToString());
+            
             if (newUser != null)
             {
                 MessageBox.Show("Registration successful!");

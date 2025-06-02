@@ -20,7 +20,9 @@ namespace PetStudyBuddy
 
         private void BackButton_Click(object sender, EventArgs e)
         {
-            this.Close(); // or NavigateBack();
+            MainPage mainPage = new MainPage();
+            mainPage.Show();
+            this.Close();
         }
 
         private void DashboardButton_Click(object sender, EventArgs e)

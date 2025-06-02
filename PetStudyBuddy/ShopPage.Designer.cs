@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            linkLabel1 = new LinkLabel();
+            BackButton = new LinkLabel();
             label1 = new Label();
             button1 = new Button();
             label2 = new Label();
@@ -53,15 +53,15 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             SuspendLayout();
             // 
-            // linkLabel1
+            // BackButton
             // 
-            linkLabel1.AutoSize = true;
-            linkLabel1.Location = new Point(15, 10);
-            linkLabel1.Name = "linkLabel1";
-            linkLabel1.Size = new Size(40, 20);
-            linkLabel1.TabIndex = 0;
-            linkLabel1.TabStop = true;
-            linkLabel1.Text = "Back";
+            BackButton.AutoSize = true;
+            BackButton.Location = new Point(15, 10);
+            BackButton.Name = "BackButton";
+            BackButton.Size = new Size(40, 20);
+            BackButton.TabIndex = 0;
+            BackButton.TabStop = true;
+            BackButton.Text = "Back";
             // 
             // label1
             // 
@@ -247,7 +247,7 @@
             Controls.Add(label2);
             Controls.Add(button1);
             Controls.Add(label1);
-            Controls.Add(linkLabel1);
+            Controls.Add(BackButton);
             Name = "ShopPage";
             Text = "ShopPage";
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
@@ -260,7 +260,7 @@
 
         #endregion
 
-        private LinkLabel linkLabel1;
+        private LinkLabel BackButton;
         private Label label1;
         private Button button1;
         private Label label2;

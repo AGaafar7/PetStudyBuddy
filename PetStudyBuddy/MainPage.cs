@@ -228,7 +228,11 @@ namespace PetStudyBuddy
         }
         private void MainPage_Click(object sender, EventArgs e)
         {
-            // If sidebar is visible and click is outside sidebar and profilePic, close sidebar
+            // Make sure sidebar and profilePic are not null or disposed
+            if (sidebar == null || sidebar.IsDisposed ||
+                profilePic == null || profilePic.IsDisposed)
+                return;
+
             if (sidebarVisible)
             {
                 // Get mouse position relative to sidebar
@@ -238,7 +242,7 @@ namespace PetStudyBuddy
                 if (mousePos.X < 0 || mousePos.X > sidebar.Width ||
                     mousePos.Y < 0 || mousePos.Y > sidebar.Height)
                 {
-                    // Also check if click was not on profilePic to prevent immediate close after open
+                    // Check if click was NOT on profilePic
                     if (!profilePic.Bounds.Contains(this.PointToClient(Cursor.Position)))
                     {
                         sidebar.Visible = false;
@@ -247,6 +251,7 @@ namespace PetStudyBuddy
                 }
             }
         }
+
 
 
         private void plusHandler(object sender, EventArgs e)
