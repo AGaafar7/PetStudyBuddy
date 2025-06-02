@@ -31,7 +31,7 @@
 
         public User(int userId, string firstName, string lastName,
                    string username, string password, string profilePic,
-                   int petId, int petLevel)
+                   int petId, int petLevel )
         {
             // Initialize all fields
             UserId = userId;
