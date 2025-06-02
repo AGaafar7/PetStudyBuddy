@@ -1,4 +1,5 @@
 using Microsoft.Data.Sqlite;
+using PetStudyBuddy.DataModels;
 using System.Data;
 using System.Diagnostics;
 
@@ -7,17 +8,20 @@ namespace PetStudyBuddy
 {
     public partial class Form1 : Form
     {
+        private DatabaseManager dbManager;
         public Form1()
         {
             InitializeComponent();
+            dbManager = new DatabaseManager();
             loginButton.Click += loginHandler;
             register.Click += registerHandler;
-            
+
 
         }
 
-        private void loginHandler(object sender, EventArgs e) {
-           
+        private void loginHandler(object sender, EventArgs e)
+        {
+
             string username = emailField.Text.Trim();
             string password = passwordField.Text.Trim();
 
@@ -29,45 +33,25 @@ namespace PetStudyBuddy
 
             try
             {
+                User user = dbManager.GetCurrentUser(username, password);
 
-
-                string dbPath = @"D:\Apps\VisualStudioSource\repos\PetStudyBuddy\PetStudyBuddy\petStudy.db";
-                string con = $"Data Source={dbPath};";
-
-                using (var connection = new SqliteConnection(con))
+                if (user != null)
                 {
-                    connection.Open();
-                  
-                    string query = "SELECT COUNT(1) FROM users WHERE username = @username AND password = @password";
-
-                    using (var cmdd = new SqliteCommand(query, connection))
-                    {
-                        cmdd.Parameters.AddWithValue("@username", username);
-                        cmdd.Parameters.AddWithValue("@password", password);
-
-                        int count = Convert.ToInt32(cmdd.ExecuteScalar());
-
-                        if (count == 1)
-                        {
-                            MessageBox.Show("Login successful!");
-
-                            // TODO: Navigate to the main screen here
-                            // Example:
-                            // MainForm mainForm = new MainForm();
-                            // mainForm.Show();
-                            // this.Hide();
-                        }
-                        else
-                        {
-                            MessageBox.Show("Invalid username or password.");
-                        }
-                    }
+                    MessageBox.Show("Login successful!");
+                    MainPage mainForm = new MainPage();
+                    mainForm.Show();
+                    this.Hide();
+                }
+                else
+                {
+                    MessageBox.Show("Invalid username or password.");
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error during login: " + ex.Message);
             }
+
         }
 
         private void registerHandler(object sender, EventArgs e)
