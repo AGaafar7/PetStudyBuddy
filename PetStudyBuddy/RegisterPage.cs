@@ -1,4 +1,5 @@
 ﻿using Microsoft.Data.Sqlite;
+using PetStudyBuddy.DataModels;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,9 +17,11 @@ namespace PetStudyBuddy
     public partial class RegisterPage : Form
     {
         private string imageSelected;
+        private DatabaseManager dbManager;
         public RegisterPage()
         {
             InitializeComponent();
+            dbManager = new DatabaseManager();
             registerBTN.Click -= registerHandler;
             registerBTN.Click += registerHandler;
             loginBTN.Click += navLoginHandler;
@@ -111,6 +114,7 @@ namespace PetStudyBuddy
         {
             if (isRegistering) return;
             isRegistering = true;
+
             string firstName = firstNameField.Text.Trim();
             string lastName = lastNameField.Text.Trim();
             string userName = userNameField.Text.Trim();
@@ -120,49 +124,34 @@ namespace PetStudyBuddy
                 string.IsNullOrEmpty(userName) || string.IsNullOrEmpty(password))
             {
                 MessageBox.Show("Please fill in all fields.");
+                isRegistering = false;
                 return;
             }
 
-            try
+            var newUser = dbManager.CreateNewUser(
+                firstName,
+                lastName,
+                userName,
+                password,
+                imageSelected,
+                petId: "101",
+                petLevel: 1
+            );
+            //The user is null needs fixing
+            MessageBox.Show(newUser.ToString());
+            if (newUser != null)
             {
-                string dbPath = @"D:\Apps\VisualStudioSource\repos\PetStudyBuddy\PetStudyBuddy\petStudy.db";
-                string con = $"Data Source={dbPath};";
-
-                using (var connection = new SqliteConnection(con))
-                {
-                    connection.Open();
-                    string insertQuery = "INSERT INTO users (firstname, lastname, username, password, petid, petlevel, profilepic) " +
-                                         "VALUES (@firstName, @lastName, @username, @password, '101', 1, @profilepic)";
-
-                    using (var insertCmd = new SqliteCommand(insertQuery, connection))
-                    {
-                        insertCmd.Parameters.AddWithValue("@firstName", firstName);
-                        insertCmd.Parameters.AddWithValue("@lastName", lastName);
-                        insertCmd.Parameters.AddWithValue("@username", userName);
-                        insertCmd.Parameters.AddWithValue("@password", password);
-                        insertCmd.Parameters.AddWithValue("@profilepic", imageSelected);
-
-                        int affectedRows = insertCmd.ExecuteNonQuery();
-
-                        if (affectedRows == 1)
-                        {
-                            MessageBox.Show("Registration successful!");
-                            MainPage mainForm = new MainPage();
-                            mainForm.Show();
-                            this.Hide();
-                        }
-                        else
-                        {
-                            MessageBox.Show("Registration failed. Please try again.");
-                        }
-                    }
-                }
-                isRegistering = false;
+                MessageBox.Show("Registration successful!");
+                MainPage mainForm = new MainPage();
+                mainForm.Show();
+                this.Hide();
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show("Error during registration: " + ex.Message);
+                MessageBox.Show("Registration failed. Please try again or try logging in if you already have an account.");
             }
+
+            isRegistering = false;
         }
 
         private void lastNameField_TextChanged(object sender, EventArgs e)
