@@ -34,7 +34,7 @@ namespace PetStudyBuddy
             try
             {
                 User user = dbManager.GetCurrentUser(username, password);
-
+                
                 if (user != null)
                 {
                     MessageBox.Show("Login successful!");

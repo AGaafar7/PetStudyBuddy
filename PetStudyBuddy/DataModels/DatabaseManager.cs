@@ -86,15 +86,16 @@ namespace PetStudyBuddy.DataModels
             }
         }
 
-        public User CreateNewUser(string firstName, string lastName, string username, string password, string profilePicture, string petId, int petLevel)
+        public User CreateNewUser(int id,string firstName, string lastName, string username, string password, string profilePicture, string petId, int petLevel)
         {
             try
             {
                 OpenConnection();
-                string insertQuery = "INSERT INTO users (firstname, lastname, username, password, petid, petlevel, profilepic) " +
-                                     "VALUES (@firstName, @lastName, @username, @password, @petId, @petLevel, @profilePicture)";
+                string insertQuery = "INSERT INTO users (userid,firstname, lastname, username, password, petid, petlevel, profilepic) " +
+                                     "VALUES (@userid,@firstName, @lastName, @username, @password, @petId, @petLevel, @profilePicture)";
                 using (var cmd = new SqliteCommand(insertQuery, connection))
                 {
+                    cmd.Parameters.AddWithValue("@userid", id);
                     cmd.Parameters.AddWithValue("@firstName", firstName);
                     cmd.Parameters.AddWithValue("@lastName", lastName);
                     cmd.Parameters.AddWithValue("@username", username);
