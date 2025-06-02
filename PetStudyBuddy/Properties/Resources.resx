@@ -121,19 +121,4 @@
   <data name="deleteIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\deleteicon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="golden" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\golden.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="husky" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\husky.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="samoyed" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Samoyed.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="sheperd" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\sheperd.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="shiba" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\shiba.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
 </root>

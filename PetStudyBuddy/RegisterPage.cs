@@ -9,7 +9,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace PetStudyBuddy
@@ -108,6 +107,7 @@ namespace PetStudyBuddy
             pictureBox3.BackColor = Color.Transparent;
             pictureBox4.BorderStyle = BorderStyle.Fixed3D;
             pictureBox4.BackColor = Color.LightBlue;
+
         }
 
         private void registerHandler(object sender, EventArgs e)
@@ -122,6 +122,10 @@ namespace PetStudyBuddy
 
             if (string.IsNullOrEmpty(firstName) || string.IsNullOrEmpty(lastName) ||
                 string.IsNullOrEmpty(userName) || string.IsNullOrEmpty(password))
+
+            //got inputs in the above variables
+            if (string.IsNullOrEmpty(firstName) || string.IsNullOrEmpty(lastName) || string.IsNullOrEmpty(userName) || string.IsNullOrEmpty(password))
+
             {
                 MessageBox.Show("Please fill in all fields.");
                 isRegistering = false;

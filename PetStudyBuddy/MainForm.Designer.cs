@@ -1,6 +1,14 @@
-﻿namespace PetStudyBuddy
+﻿// MainForm.Designer.cs - Designer code for MainForm
+// Fixed to remove duplicate timeLeft field and other compilation issues
+
+using System;
+using System.ComponentModel;
+using System.Drawing;
+using System.Windows.Forms;
+
+namespace PetStudyBuddy
 {
-    partial class MainPage
+    partial class MainForm
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +37,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainPage));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             label1 = new Label();
             progressBar1 = new ProgressBar();
             totalItemsChecker = new Label();
@@ -82,11 +90,11 @@
             addBTN.BackColor = Color.Transparent;
             addBTN.FlatAppearance.BorderSize = 0;
             addBTN.FlatStyle = FlatStyle.Flat;
-            addBTN.Image = (Image)resources.GetObject("addBTN.Image");
             addBTN.Location = new Point(29, 441);
             addBTN.Name = "addBTN";
             addBTN.Size = new Size(42, 45);
             addBTN.TabIndex = 4;
+            addBTN.Text = "+";
             addBTN.UseVisualStyleBackColor = false;
             // 
             // profilePic
@@ -94,11 +102,11 @@
             profilePic.BackColor = Color.White;
             profilePic.FlatAppearance.BorderSize = 0;
             profilePic.FlatStyle = FlatStyle.Flat;
-            profilePic.Image = (Image)resources.GetObject("profilePic.Image");
             profilePic.Location = new Point(12, 12);
             profilePic.Name = "profilePic";
             profilePic.Size = new Size(42, 45);
             profilePic.TabIndex = 5;
+            profilePic.Text = "👤";
             profilePic.UseVisualStyleBackColor = false;
             // 
             // label3
@@ -113,7 +121,6 @@
             // pictureBox1
             // 
             pictureBox1.BackColor = Color.Transparent;
-            pictureBox1.BackgroundImage = (Image)resources.GetObject("pictureBox1.BackgroundImage");
             pictureBox1.BackgroundImageLayout = ImageLayout.Center;
             pictureBox1.Location = new Point(632, 12);
             pictureBox1.Name = "pictureBox1";
@@ -196,7 +203,7 @@
             pictureBox2.TabIndex = 18;
             pictureBox2.TabStop = false;
             // 
-            // MainPage
+            // MainForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -216,8 +223,8 @@
             Controls.Add(totalItemsChecker);
             Controls.Add(progressBar1);
             Controls.Add(label1);
-            Name = "MainPage";
-            Text = "Main";
+            Name = "MainForm";
+            Text = "Pet Study Buddy";
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
@@ -236,7 +243,7 @@
         private Label countDownLabel;
         private Button startTimerBTN;
         private System.Windows.Forms.Timer countDownTimer;
-        private TimeSpan timeLeft;
+        // REMOVED DUPLICATE timeLeft FIELD - this was causing ambiguity errors
         private Button stopTimerBTN;
         private FlowLayoutPanel tasksList;
         private LinkLabel toShop;

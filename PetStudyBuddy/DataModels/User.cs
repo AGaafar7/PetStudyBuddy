@@ -29,7 +29,9 @@ namespace PetStudyBuddy.DataModels
             PetLevel = petLevel;
         }
 
+
         public User(string firstName, string lastName, string username, string password, string petId, int petLevel, string profilePicture)
+
         {
             Username = username;
             Password = password;
@@ -43,3 +45,4 @@ namespace PetStudyBuddy.DataModels
 
     }
 }
+
