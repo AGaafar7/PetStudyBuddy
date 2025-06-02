@@ -32,7 +32,7 @@ namespace PetStudyBuddy
 
             try
             {
-                User user = dbManager.GetCurrentUser(username, password);
+                User user = dbManager.GetUser(username, password);
 
                 if (user != null)
                 {

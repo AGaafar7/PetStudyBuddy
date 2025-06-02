@@ -133,7 +133,7 @@ namespace PetStudyBuddy
                 lastName,
                 userName,
                 password,
-                imageSelected,
+                "ss",
                 petId: "101",
                 petLevel: 1
             );

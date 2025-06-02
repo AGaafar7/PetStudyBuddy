@@ -30,7 +30,7 @@
         {
             BackButton = new LinkLabel();
             label1 = new Label();
-            button1 = new Button();
+            sheperdBTN = new Button();
             label2 = new Label();
             label3 = new Label();
             pictureBox1 = new PictureBox();
@@ -43,10 +43,14 @@
             label7 = new Label();
             label8 = new Label();
             label9 = new Label();
-            button2 = new Button();
-            button3 = new Button();
-            button4 = new Button();
+            goldenBTN = new Button();
+            huskyBTN = new Button();
+            samoyedBTN = new Button();
             label10 = new Label();
+            samoyedprice = new Label();
+            huskyPrice = new Label();
+            goldenPrice = new Label();
+            sheperdPrice = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
@@ -72,15 +76,15 @@
             label1.TabIndex = 1;
             label1.Text = "XP : ";
             // 
-            // button1
+            // sheperdBTN
             // 
-            button1.Location = new Point(100, 305);
-            button1.Name = "button1";
-            button1.Size = new Size(94, 29);
-            button1.TabIndex = 2;
-            button1.Text = "Buy";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            sheperdBTN.Location = new Point(100, 305);
+            sheperdBTN.Name = "sheperdBTN";
+            sheperdBTN.Size = new Size(94, 29);
+            sheperdBTN.TabIndex = 2;
+            sheperdBTN.Text = "Buy";
+            sheperdBTN.UseVisualStyleBackColor = true;
+            sheperdBTN.Click += button1_Click;
             // 
             // label2
             // 
@@ -103,6 +107,7 @@
             // 
             // pictureBox1
             // 
+            pictureBox1.BackgroundImage = Properties.Resources.sheperd;
             pictureBox1.Location = new Point(100, 166);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(125, 62);
@@ -111,6 +116,7 @@
             // 
             // pictureBox2
             // 
+            pictureBox2.BackgroundImage = Properties.Resources.golden;
             pictureBox2.Location = new Point(275, 166);
             pictureBox2.Name = "pictureBox2";
             pictureBox2.Size = new Size(125, 62);
@@ -119,14 +125,17 @@
             // 
             // pictureBox3
             // 
+            pictureBox3.BackgroundImage = Properties.Resources.husky;
             pictureBox3.Location = new Point(434, 166);
             pictureBox3.Name = "pictureBox3";
             pictureBox3.Size = new Size(125, 62);
             pictureBox3.TabIndex = 7;
             pictureBox3.TabStop = false;
+            pictureBox3.Click += pictureBox3_Click;
             // 
             // pictureBox4
             // 
+            pictureBox4.BackgroundImage = Properties.Resources.samoyed;
             pictureBox4.Location = new Point(602, 166);
             pictureBox4.Name = "pictureBox4";
             pictureBox4.Size = new Size(125, 62);
@@ -187,32 +196,32 @@
             label9.TabIndex = 13;
             label9.Text = "XP";
             // 
-            // button2
+            // goldenBTN
             // 
-            button2.Location = new Point(275, 305);
-            button2.Name = "button2";
-            button2.Size = new Size(94, 29);
-            button2.TabIndex = 15;
-            button2.Text = "Buy";
-            button2.UseVisualStyleBackColor = true;
+            goldenBTN.Location = new Point(275, 305);
+            goldenBTN.Name = "goldenBTN";
+            goldenBTN.Size = new Size(94, 29);
+            goldenBTN.TabIndex = 15;
+            goldenBTN.Text = "Buy";
+            goldenBTN.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // huskyBTN
             // 
-            button3.Location = new Point(434, 305);
-            button3.Name = "button3";
-            button3.Size = new Size(94, 29);
-            button3.TabIndex = 16;
-            button3.Text = "Buy";
-            button3.UseVisualStyleBackColor = true;
+            huskyBTN.Location = new Point(434, 305);
+            huskyBTN.Name = "huskyBTN";
+            huskyBTN.Size = new Size(94, 29);
+            huskyBTN.TabIndex = 16;
+            huskyBTN.Text = "Buy";
+            huskyBTN.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // samoyedBTN
             // 
-            button4.Location = new Point(602, 305);
-            button4.Name = "button4";
-            button4.Size = new Size(94, 29);
-            button4.TabIndex = 17;
-            button4.Text = "Buy";
-            button4.UseVisualStyleBackColor = true;
+            samoyedBTN.Location = new Point(602, 305);
+            samoyedBTN.Name = "samoyedBTN";
+            samoyedBTN.Size = new Size(94, 29);
+            samoyedBTN.TabIndex = 17;
+            samoyedBTN.Text = "Buy";
+            samoyedBTN.UseVisualStyleBackColor = true;
             // 
             // label10
             // 
@@ -224,15 +233,56 @@
             label10.Text = "0";
             label10.Click += label10_Click;
             // 
+            // samoyedprice
+            // 
+            samoyedprice.AutoSize = true;
+            samoyedprice.Location = new Point(634, 270);
+            samoyedprice.Name = "samoyedprice";
+            samoyedprice.Size = new Size(25, 20);
+            samoyedprice.TabIndex = 19;
+            samoyedprice.Text = "50";
+            samoyedprice.Click += label11_Click;
+            // 
+            // huskyPrice
+            // 
+            huskyPrice.AutoSize = true;
+            huskyPrice.Location = new Point(466, 270);
+            huskyPrice.Name = "huskyPrice";
+            huskyPrice.Size = new Size(25, 20);
+            huskyPrice.TabIndex = 20;
+            huskyPrice.Text = "20";
+            // 
+            // goldenPrice
+            // 
+            goldenPrice.AutoSize = true;
+            goldenPrice.Location = new Point(307, 270);
+            goldenPrice.Name = "goldenPrice";
+            goldenPrice.Size = new Size(25, 20);
+            goldenPrice.TabIndex = 21;
+            goldenPrice.Text = "10";
+            // 
+            // sheperdPrice
+            // 
+            sheperdPrice.AutoSize = true;
+            sheperdPrice.Location = new Point(132, 270);
+            sheperdPrice.Name = "sheperdPrice";
+            sheperdPrice.Size = new Size(17, 20);
+            sheperdPrice.TabIndex = 22;
+            sheperdPrice.Text = "5";
+            // 
             // ShopPage
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(sheperdPrice);
+            Controls.Add(goldenPrice);
+            Controls.Add(huskyPrice);
+            Controls.Add(samoyedprice);
             Controls.Add(label10);
-            Controls.Add(button4);
-            Controls.Add(button3);
-            Controls.Add(button2);
+            Controls.Add(samoyedBTN);
+            Controls.Add(huskyBTN);
+            Controls.Add(goldenBTN);
             Controls.Add(label8);
             Controls.Add(label9);
             Controls.Add(label6);
@@ -245,7 +295,7 @@
             Controls.Add(pictureBox1);
             Controls.Add(label3);
             Controls.Add(label2);
-            Controls.Add(button1);
+            Controls.Add(sheperdBTN);
             Controls.Add(label1);
             Controls.Add(BackButton);
             Name = "ShopPage";
@@ -262,7 +312,7 @@
 
         private LinkLabel BackButton;
         private Label label1;
-        private Button button1;
+        private Button sheperdBTN;
         private Label label2;
         private Label label3;
         private PictureBox pictureBox1;
@@ -275,9 +325,13 @@
         private Label label7;
         private Label label8;
         private Label label9;
-        private Button button2;
-        private Button button3;
-        private Button button4;
+        private Button goldenBTN;
+        private Button huskyBTN;
+        private Button samoyedBTN;
         private Label label10;
+        private Label samoyedprice;
+        private Label huskyPrice;
+        private Label goldenPrice;
+        private Label sheperdPrice;
     }
 }

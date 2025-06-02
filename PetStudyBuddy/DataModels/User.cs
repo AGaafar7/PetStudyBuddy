@@ -1,45 +1,70 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace PetStudyBuddy.DataModels
+﻿namespace PetStudyBuddy.DataModels
 {
-    internal class User : DatabaseManager
+    public class User
     {
-        public int Id { get; set; }
+        // Database Fields
+        public int UserId { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
         public string Username { get; set; }
         public string Password { get; set; }
-        public string firstName { get; set; }
-        public string lastName { get; set; }
-        public string ProfilePicture { get; set; }
-        public string PetId { get; set; }
+        public string ProfilePic { get; set; }
+        public int PetId { get; set; }
         public int PetLevel { get; set; }
 
-        public User(int id, string firstName, string lastName, string username, string password, string petId, int petLevel, string profilePicture)
+        // COMPOSITION: HAS-A Relationships
+        public Pet CurrentPet { get; private set; }
+        public List<Task> Tasks { get; } = new List<Task>();
+        public List<Task> CompletedTasks { get; } = new List<Task>();
+
+        // Encapsulated XP (linked to XP table)
+        private int _xp;
+        public int XP
         {
-            Id = id;
-            Username = username;
-            Password = password;
-            this.firstName = firstName;
-            this.lastName = lastName;
-            ProfilePicture = profilePicture;
-            PetId = petId;
-            PetLevel = petLevel;
+            get => _xp;
+            private set
+            {
+                _xp = value;
+                CheckPetEvolution();
+            }
         }
 
-       public User(string firstName, string lastName, string username, string password, string petId, int petLevel, string profilePicture)
+        public User(int userId, string firstName, string lastName,
+                   string username, string password, string profilePic,
+                   int petId, int petLevel)
         {
+            // Initialize all fields
+            UserId = userId;
+            FirstName = firstName;
+            LastName = lastName;
             Username = username;
             Password = password;
-            this.firstName = firstName;
-            this.lastName = lastName;
-            ProfilePicture = profilePicture;
+            ProfilePic = profilePic;
             PetId = petId;
             PetLevel = petLevel;
+            
+
+            // Initialize pet based on level
+            CurrentPet = PetLevel >= 5 ? new Dog() : new Puppy();
         }
 
-        
+        public void CompleteTask(Task task)
+        {
+            if (Tasks.Remove(task))
+            {
+                CompletedTasks.Add(task);
+                XP += task.XPReward; // Encapsulated XP update
+                CurrentPet.ReactToTask();
+            }
+        }
+
+        private void CheckPetEvolution()
+        {
+            if (XP >= 500 && CurrentPet is Puppy)
+            {
+                CurrentPet = new Dog();
+                PetLevel = 5;
+            }
+        }
     }
 }

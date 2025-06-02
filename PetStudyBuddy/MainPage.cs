@@ -38,7 +38,7 @@ namespace PetStudyBuddy
             tasksList.HorizontalScroll.Enabled = false;
             tasksList.HorizontalScroll.Visible = false;
 
-            
+
             sidebar = new Panel
             {
                 BackColor = Color.LightSlateGray,
@@ -70,7 +70,7 @@ namespace PetStudyBuddy
                 sidebar.Height = this.ClientSize.Height;
             };
         }
-        
+
         private void InitializeSidebarProfile()
         {
             // Clear existing sidebar controls if any
@@ -170,7 +170,7 @@ namespace PetStudyBuddy
             };
             signOutButton.Click += (s, e) =>
             {
-                
+
                 Form1 loginPage = new Form1();
                 loginPage.Show();
                 this.Close();
@@ -280,7 +280,7 @@ namespace PetStudyBuddy
                 if (form.ShowDialog() == DialogResult.OK)
                 {
                     AddTaskToPanel(form.TaskName, form.Description, form.DueDate);
-                    
+
 
                     totalTasks++;
                     UpdateProgressDisplay();
@@ -291,7 +291,7 @@ namespace PetStudyBuddy
         private void UpdateProgressDisplay()
         {
             toShop.Text = $"XP: {xp}";
-            
+
             int progress = totalTasks > 0 ? (int)((double)completedTasks / totalTasks * 100) : 0;
             progressBar1.Value = Math.Min(progress, 100);
             totalItemsChecker.Text = $"{completedTasks}/{totalTasks}";
